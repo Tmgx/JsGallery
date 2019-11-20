@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+	<title>Image Gallery</title>
+	<link href="Everest.html">
+	
+	
+	<style type="text/css">
+		
+		header {
+			margin: 0 auto;
+			width: 100%;
+			background-color:hsla(224,84%,38%,1.00);
+			border: thin;
+			border-radius: 15px;
+			padding: 5px;
+			margin: 10px;
+		}
+		
+		body {
+			background:#060606;
+			margin:0;
+		}
+		
+		.thumbnails img {
+			height: 80px;
+			border: 4px solid #F2080B;
+			padding: 2px;
+			margin: 0 10px 10px 0;	
+		}
+		
+		.thumbnails img:hover {
+			border: 4px solid #1F0BDF;
+			cursor: pointer;
+		}
+		
+		.preview img {
+			border: 4px solid #22EC0A;
+			padding: 1px;
+			width: 800px;
+		}
+	
+	</style>
+	
+</head>
+
+<body>
+	
+	<div class="gallery" align="center">
+		<header>
+			<h3>Visit Nepal 2020 Photo Gallery</h3>
+		</header>
+		
+		<select onchange="changeGallery(this.value)">
+			<option value="bhaktapur">Bhaktapur</option>
+			<option value="rukum">Rukum</option>
+			<option value="everest">Everest</option>
+			<option value="pokhara">Pokhara</option>
+			<option value="mustang">Mustang</option>
+		</select>
+		
+		<div class="thumbnails" id="thumbs">
+			<img onmouseover="ShowPreview(this.src)" id="img1" src="JsGallery/Images/Bhaktapur/Bhaktapur1.jpg" alt>
+			<img onmouseover="ShowPreview(this.src)" id="img2" src="JsGallery/Images/Bhaktapur/Bhaktapur2.jpg" alt>
+			<img onmouseover="ShowPreview(this.src)" id="img3" src="JsGallery/Images/Bhaktapur/Bhaktapur3.jpg" alt>
+			<img onmouseover="ShowPreview(this.src)" id="img4" src="JsGallery/Images/Bhaktapur/Bhaktapur4.jpg" alt>
+			<img onmouseover="ShowPreview(this.src)" id="img5" src="JsGallery/Images/Bhaktapur/Bhaktapur5.jpg" alt>
+		</div>
+		
+		<div class="preview" align="center">
+				<img id="preview" src=" " alt=""/>
+		</div>
+	
+	</div>
+	
+	<script>
+	
+		function ShowPreview(newImage) {
+			var image = document.querySelector("#preview");
+			image.setAttribute('src', newImage.toString());
+		}
+		
+		function changeGallery(filefolder) {
+		var gall = document.querySelector("#thumbs").children;
+		for(i=0; i<gall.length; i++) {
+				gall[i].setAttribute('src', "JsGallery/"+"images/"+filefolder+"/" + filefolder + (i+1)+".jpg");
+			}
+		}
+	
+	</script>
+	
+</body>
+</html>
